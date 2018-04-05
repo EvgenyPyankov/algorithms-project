@@ -1,9 +1,6 @@
 package utils;
 
-import sorting.BubbleSort;
-import sorting.ISort;
-import sorting.InsertionSort;
-import sorting.ShellSort;
+import sorting.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,7 +16,7 @@ public class PerformanceMeasurer {
     }
 
     private void measure(ISort sort){
-        Comparable[]arr = generator.generate(20000);
+        Comparable[]arr = generator.generate(10000000);
         long from = System.currentTimeMillis();
         sort.sort(arr);
         long to = System.currentTimeMillis();
@@ -31,9 +28,10 @@ public class PerformanceMeasurer {
     private Collection<ISort>getSorts(){
 //        return Collections.singletonList("new", "new");
         Collection sorts = new ArrayList();
-        sorts.add(new BubbleSort());
-        sorts.add(new InsertionSort());
+//        sorts.add(new BubbleSort());
+//        sorts.add(new InsertionSort());
         sorts.add(new ShellSort());
+        sorts.add(new MergeSort());
         return sorts;
     }
 
